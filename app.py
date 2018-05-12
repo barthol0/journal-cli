@@ -9,25 +9,37 @@ def print_header():
     print('--------------------')
 
 
-def run_event_loop():
+def print_menu():
     print('Choose one of the options:\n')
     print('[L]ist entries.')
     print('[A]dd entry.')
     print('[Q]uit.')
+
+
+def run_event_loop():
     user_cmd = ''
+    journal_data = []
 
     while user_cmd != 'q':
-        user_cmd = input()
+        print_menu()
+        user_cmd = input('>')
         user_cmd = user_cmd.lower().strip()
 
         if user_cmd == 'l':
-            print('list entries')
+            list_entries(journal_data)
         elif  user_cmd == 'a':
-            print('add entry')
+            add_entry(journal_data)
         elif user_cmd != 'q':
             print("Sorry, unknown command '{}'.".format(user_cmd.lower().strip()))
             
 
+def list_entries(data):
+    print(data)
+
+
+def add_entry(data):
+    text = input('Enter your note:')
+    data.append(text)
 
 
 if __name__ == '__main__':
