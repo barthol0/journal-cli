@@ -10,7 +10,7 @@ def print_header():
 
 
 def print_menu():
-    print('Choose one of the options:\n')
+    print('\nChoose one of the options:')
     print('[L]ist entries.')
     print('[A]dd entry.')
     print('[Q]uit.')
@@ -34,7 +34,10 @@ def run_event_loop():
             
 
 def list_entries(data):
-    print(data)
+    entries = reversed(data)
+    print('Your notes:')
+    for index, entry in enumerate(entries):
+        print('* [{}] {}'.format(index + 1, entry))
 
 
 def add_entry(data):
