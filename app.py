@@ -1,3 +1,6 @@
+import journal
+
+
 def main():
     print_header()
     run_event_loop()
@@ -18,7 +21,8 @@ def print_menu():
 
 def run_event_loop():
     user_cmd = ''
-    journal_data = []
+    journal_name = 'default'
+    journal_data = journal.load_journal(journal_name)
 
     while user_cmd != 'q':
         print_menu()
@@ -31,6 +35,8 @@ def run_event_loop():
             add_entry(journal_data)
         elif user_cmd != 'q':
             print("Sorry, unknown command '{}'.".format(user_cmd.lower().strip()))
+
+    journal.save_journal(journal_name, journal_data)
             
 
 def list_entries(data):
