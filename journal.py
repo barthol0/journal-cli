@@ -16,6 +16,7 @@ def load_journal(name):
 def save_journal(name, journal_data):
      filename = get_full_pathname(name)
      print('.........saving to {}'.format(filename))
+     print('DONE.')
 
      with open(filename, 'w') as fout:
          for entry in journal_data:
